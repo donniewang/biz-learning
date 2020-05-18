@@ -1,0 +1,22 @@
+server:
+    port: 8001
+
+spring:
+    application:
+        name: biz-learning-eureka-security-server
+    security:
+        user:
+            name: biz
+            password: 123456
+
+eureka:
+    instance:
+        hostname: biz-learning-eureka-security-server
+    client:
+        register-with-eureka: false
+        fetch-registry: false
+        service-url:
+            defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+
+    server:
+        enable-self-preservation: true

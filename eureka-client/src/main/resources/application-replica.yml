@@ -1,0 +1,13 @@
+server:
+    port: 8101
+
+spring:
+    application:
+        name: biz-learning-eureka-client
+
+eureka:
+    client:
+        register-with-eureka: true
+        fetch-registry: true
+        service-url:
+            defaultZone: http://biz-learning-eureka-slave1:8001/eureka/,http://biz-learning-eureka-slave2:8002/eureka/,http://biz-learning-eureka-slave3:8003/eureka/
