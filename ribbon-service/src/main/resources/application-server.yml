@@ -1,0 +1,16 @@
+server:
+    port: 8301
+
+spring:
+    application:
+        name: biz-learning-ribbon-service
+
+eureka:
+    client:
+        register-with-eureka: true
+        fetch-registry: true
+        service-url:
+            defaultZone: http://biz-learning-eureka-server:8001/eureka/
+
+service-url:
+    user-service: http://biz-learning-user-service
