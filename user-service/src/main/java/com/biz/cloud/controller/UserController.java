@@ -41,6 +41,7 @@ public class UserController {
 
     @GetMapping("/getUserByIds")
     public CommonResult<List<User>> getUserByIds(@RequestParam List<Long> ids) {
+        LOGGER.info("根据ids获取用户信息，ids：{}",ids);
         List<User> userList = userService.getUserByIds(ids);
         LOGGER.info("根据ids获取用户信息，用户列表为：{}",userList);
         return new CommonResult<>(userList);

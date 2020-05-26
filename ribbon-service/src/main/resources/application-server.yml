@@ -12,5 +12,13 @@ eureka:
         service-url:
             defaultZone: http://biz-learning-eureka-server:8001/eureka/
 
+ribbon:
+    ConnectTimeout: 1000 #服务请求连接超时时间（毫秒）
+    ReadTimeout: 3000 #服务请求处理超时时间（毫秒）
+    OkToRetryOnAllOperations: true #对超时请求启用重试机制
+    MaxAutoRetriesNextServer: 1 #切换重试实例的最大个数
+    MaxAutoRetries: 1 # 切换实例后重试最大次数
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #修改负载均衡算法
+
 service-url:
     user-service: http://biz-learning-user-service

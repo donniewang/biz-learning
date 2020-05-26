@@ -1,0 +1,22 @@
+server:
+    port: 8401
+
+spring:
+    application:
+        name: biz-learning-hystrix-service
+
+eureka:
+    client:
+        register-with-eureka: true
+        fetch-registry: true
+        service-url:
+            defaultZone: http://biz-learning-eureka-server:8001/eureka/
+
+service-url:
+    user-service: http://biz-learning-user-service
+
+management:
+    endpoint:
+        web:
+            exposure:
+                include: 'hystrix.stream'
