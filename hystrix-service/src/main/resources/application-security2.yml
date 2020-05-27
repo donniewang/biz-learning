@@ -20,7 +20,7 @@ service-url:
     user-service: http://biz-learning-user-service
 
 management:
-    endpoint:
+    endpoints:
         web:
             exposure:
                 include: 'hystrix.stream'

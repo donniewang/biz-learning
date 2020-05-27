@@ -1,26 +1,17 @@
 server:
-    port: 8401
+    port: 8501
 
 spring:
     application:
-        name: biz-learning-hystrix-service
+        name: biz-learning-hystrix-dashboard
     security:
         user:
             name: biz
             password: 123456
-
+            
 eureka:
     client:
         register-with-eureka: true
         fetch-registry: true
         service-url:
             defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@biz-learning-eureka-security-server:8001/eureka/
-
-service-url:
-    user-service: http://biz-learning-user-service
-
-management:
-    endpoints:
-        web:
-            exposure:
-                include: 'hystrix.stream'
