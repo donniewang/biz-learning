@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.biz.cloud</groupId>
-	<artifactId>hystrix-dashboard</artifactId>
+	<artifactId>biz-learning-hystrix-dashboard</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hystrix-dashboard</name>
 	<description>Hystrix Dashboard project for Spring Boot</description>
