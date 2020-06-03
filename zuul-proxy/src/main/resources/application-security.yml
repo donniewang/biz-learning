@@ -17,8 +17,16 @@ eureka:
             defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@biz-learning-eureka-security-server:8001/eureka/
 
 zuul:
+    prefix: /api #增加前缀
     routes:
         biz-learning-user-service:
             path: /user-service/**
         biz-learning-feign-service:
             path: /feign-service/**
+    ignored-services: biz-learning-user-service,biz-learning-feign-service #关闭默认配置
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: 'routes'

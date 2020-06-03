@@ -1,0 +1,22 @@
+server:
+    port: 8901
+
+spring:
+    application:
+        name: biz-learning-zuul-proxy
+    security:
+        user:
+            name: biz
+            password: 123456
+    cloud:
+        server:
+            git:
+                uri: https://github.com/donniewang/biz-learning.git
+                clone-on-start: true
+
+eureka:
+    client:
+        register-with-eureka: true
+        fetch-registry: true
+        service-url:
+            defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@biz-learning-eureka-security-server:8001/eureka/
