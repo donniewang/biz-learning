@@ -6,10 +6,6 @@ import java.util.concurrent.Future;
 import com.biz.cloud.domain.CommonResult;
 import com.biz.cloud.domain.User;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

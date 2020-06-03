@@ -1,7 +1,6 @@
 package com.biz.cloud.service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.Future;
 
 import com.biz.cloud.domain.CommonResult;
@@ -10,21 +9,11 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
-import com.netflix.ribbon.proxy.annotation.Hystrix;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.CollUtil;
 
 @Service
 public class UserService {
@@ -55,7 +44,7 @@ public class UserService {
     }
 
     @HystrixCollapser(batchMethod = "getUserByIds",collapserProperties = {
-        @HystrixProperty(name = "timerDelayInMilliseconds", value = "1000")
+        @HystrixProperty(name = "timerDelayInMilliseconds", value = "100")
     })
     public Future<User> getUserFuture(Long id) {
         return new AsyncResult<User>(){

@@ -5,7 +5,6 @@ import java.util.concurrent.Future;
 
 import com.biz.cloud.domain.CommonResult;
 import com.biz.cloud.domain.User;
-import com.biz.cloud.service.UserFeignService;
 import com.biz.cloud.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +25,17 @@ public class UserFeignController {
 
     @GetMapping("/{id}")
     public CommonResult getUser(@PathVariable Long id) throws ExecutionException, InterruptedException {
-        Future<User> future1 = userService.getUserFuture(1L);
-        User user1 = future1.get();
-        Future<User> future2 = userService.getUserFuture(2L);
+        return userService.getUser(id);
+    }
+
+    @GetMapping("/getByFuture")
+    public CommonResult getByFuture(@RequestParam Long id) throws ExecutionException, InterruptedException {
+        // Future<User> future1 = userService.getUserFuture(1L);
+        // User user1 = future1.get();
+        Future<User> future2 = userService.getUserFuture(id);
         User user2 = future2.get();
-        Future<User> future3 = userService.getUserFuture(3L);
-        User user3 = future3.get();
+        // Future<User> future3 = userService.getUserFuture(id);
+        // User user3 = future3.get();
         if (user2!=null) {
             return new CommonResult<>(user2);
         } else {
