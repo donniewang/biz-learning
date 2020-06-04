@@ -5,10 +5,13 @@ spring:
     application:
         name: biz-learning-config-server
     cloud:
-        server:
-            git:
-                uri: https://github.com/donniewang/biz-learning.git
-                clone-on-start: true
+        config:
+            server:
+                git:
+                    # uri: https://github.com/donniewang/biz-config.git
+                    uri: https://github.com/donniewang/biz-learning.git
+                    search-paths: 'config'
+                    clone-on-start: true
 
 eureka:
     client:

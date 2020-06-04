@@ -1,21 +1,19 @@
 server:
-    port: 8901
+    port: 9001
 
 spring:
     application:
-        name: biz-learning-config-server
+        name: biz-learning-config-client
     security:
         user:
             name: biz
             password: 123456
     cloud:
         config:
-            server:
-                git:
-                    # uri: https://github.com/donniewang/biz-config.git
-                    uri: https://github.com/donniewang/biz-learning.git
-                    search-paths: 'config'
-                    clone-on-start: true
+            profile: prod
+            label: master
+            uri: http://biz-learning-config-server:8901
+            name: config
 
 eureka:
     client:

@@ -1,0 +1,19 @@
+server:
+    port: 9001
+
+spring:
+    application:
+        name: biz-learning-config-client
+    cloud:
+        config:
+            profile: test
+            label: master
+            uri: http://biz-learning-config-server:8901
+            name: config
+
+eureka:
+    client:
+        register-with-eureka: true
+        fetch-registry: true
+        service-url:
+            defaultZone: http://biz-learning-eureka-server:8001/eureka/
